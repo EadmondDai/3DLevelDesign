@@ -19,6 +19,7 @@ public class DragoFire : MonoBehaviour {
         GameObject firebreathinstance = Instantiate(FireBreath);
         firebreathinstance.transform.parent = FirePoint;
         firebreathinstance.transform.position = FirePoint.position;
+        firebreathinstance.transform.rotation = FirePoint.rotation;
         emision = firebreathinstance.GetComponent<ParticleSystem>().emission;
         emision.rate = new ParticleSystem.MinMaxCurve(0);
     }
