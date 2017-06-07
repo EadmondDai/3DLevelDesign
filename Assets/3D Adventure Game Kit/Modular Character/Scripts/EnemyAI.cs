@@ -195,7 +195,8 @@ public class EnemyAI : AbstractBehaviour {
                     if (Vector3.Distance(pos, target.transform.position) < attack.range)
                     {
                         //Damage the target
-                        target.GetComponent<Health>().Damage(attack.damage, transform.position);
+                        // Oh, no damage for now
+                        //target.GetComponent<Health>().Damage(attack.damage, transform.position);
                     }
                 }
             }
@@ -264,5 +265,10 @@ public class EnemyAI : AbstractBehaviour {
 
         }
 
+    }
+
+    public void OnHitByFireBall()
+    {
+        GetComponent<Health>().Damage(1, transform.position);
     }
 }

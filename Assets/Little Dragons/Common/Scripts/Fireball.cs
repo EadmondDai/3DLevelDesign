@@ -10,11 +10,15 @@ public class Fireball : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+        if (other.GetType() == typeof(SphereCollider))
+            return;
+    
         Rigidbody impact = other.GetComponent<Rigidbody>();
 
         if (impact)
         {
             impact.AddExplosionForce(100f * Force, transform.position, 100f * Radius);
+            other.GetComponent<EnemyAI>().OnHitByFireBall();
         }
 
         Destroy(gameObject);
